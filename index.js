@@ -13,7 +13,9 @@ app.use(cors(corsConfig));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-   res.cookie("cookie", "poftim_cookie");
+   res.cookie("cookie", "poftim_cookie", {
+      sameSite: true, // Set SameSite to true
+   });
    res.send({ you: "hello" });
 });
 app.post("/cookie", (req, res) => {
