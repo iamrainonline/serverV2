@@ -3,7 +3,13 @@ const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 // setCookie
-app.use(cors());
+
+const corsConfig = {
+   origin: ["https://tense-bass-capris.cyclic.app/"],
+   credentials: true,
+   methods: "GET,HEAD,OPTIONS,PUT,POST,DELETE,PATCH",
+};
+app.use(cors(corsConfig));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
